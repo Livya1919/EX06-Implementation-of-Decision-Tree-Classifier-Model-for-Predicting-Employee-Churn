@@ -21,21 +21,21 @@ Developed by: Livya Dharshini G
 RegisterNumber: 2305001013  
 */
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier,plot_tree
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.preprocessing import LabelEncoder
 import matplotlib.pyplot as plt
-df=pd.read_csv('/content/Employee_EX6.csv')
+df=pd.read_csv("/content/Employee_EX6.csv")
 data=df.copy()
-data.describe()
+data
 le=LabelEncoder()
 data['salary']=le.fit_transform(data['salary'])
 data
-X=data.drop(['Departments','left'],axis=1)
-Y=data['left']
-clt=DecisionTreeClassifier()
-clt.fit(X,Y)
+x=data.drop(['Departments','left'],axis=1)
+y=data['left']
+clf=DecisionTreeClassifier()
+clf.fit(x,y)
 plt.figure(figsize=(80,80))
-plot_tree(clt,feature_names=X.columns,class_names=['LEFT','NOT LEFT'],filled=True)
+plot_tree(clf,feature_names=x.columns,class_names=['LEFT','NOT LEFT'],filled=True)
 plt.show()
 ```
 
